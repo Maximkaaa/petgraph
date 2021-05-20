@@ -2102,6 +2102,12 @@ pub struct EdgeReference<'a, E: 'a, Ix = DefaultIx> {
     weight: &'a E,
 }
 
+impl<'a, E, Ix: IndexType> EdgeReference<'a, E, Ix> {
+    pub fn edge_index(&self) -> EdgeIndex<Ix> {
+        self.index
+    }
+}
+
 impl<'a, E, Ix: IndexType> Clone for EdgeReference<'a, E, Ix> {
     fn clone(&self) -> Self {
         *self
